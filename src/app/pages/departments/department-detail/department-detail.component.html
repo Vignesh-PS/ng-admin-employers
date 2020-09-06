@@ -1,0 +1,81 @@
+
+<div class="card" *ngIf="pageAction=='view'">
+
+  <div class="card-header">
+    <h5 class="card-title">View user details</h5>
+  </div>
+
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>Department Name</h5>
+          </div>
+          <div class="col-8">
+            {{pageData.department_name || '---'}}
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>Description</h5>
+          </div>
+          <div class="col-8">
+            {{pageData.department_description || '---'}}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-footer text-muted">
+    <button class="btn btn-primary float-right" [routerLink]="['/departments']" routerLinkActive="router-link-active" >Back</button>
+  </div>
+
+</div>
+
+
+
+<div class="card" *ngIf="pageAction=='add' || pageAction=='edit'">
+
+  <div class="card-header">
+    <h5 class="card-title">{{pageAction=='add' ? 'Add': 'Update'}} user details</h5>
+  </div>
+
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>Department Name</h5>
+          </div>
+          <div class="col-8">
+            <input type="text" class="form-control" id="name" [(ngModel)]="pageData.department_name" placeholder="Department Name">
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>Description</h5>
+          </div>
+          <div class="col-8">
+            <!-- <input type="number" class="form-control" id="age" [(ngModel)]="pageData.user_age" placeholder="Age"> -->
+
+            <textarea class="w-100" name="description" [(ngModel)]="pageData.department_description" placeholder="Description" rows="5"></textarea>
+
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-footer text-muted">
+    <button class="btn btn-danger float-right mr-2" [routerLink]="['/departments']" routerLinkActive="router-link-active" >Cancel</button>
+    <button class="btn btn-primary float-right mr-2" (click)="submitPageData()" *ngIf="pageAction=='edit'">Update</button>
+    <button class="btn btn-primary float-right mr-2" (click)="submitPageData()" *ngIf="pageAction=='add'">Add</button>
+  </div>
+
+</div>

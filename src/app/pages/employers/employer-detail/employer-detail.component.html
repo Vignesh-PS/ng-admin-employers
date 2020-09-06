@@ -1,0 +1,138 @@
+
+<div class="card" *ngIf="pageAction=='view'">
+
+  <div class="card-header">
+    <h5 class="card-title">View employer details</h5>
+  </div>
+
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>Name</h5>
+          </div>
+          <div class="col-8">
+            {{pageData.user_name || '---'}}
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>Age</h5>
+          </div>
+          <div class="col-8">
+            {{pageData.user_age || '---'}}
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>State</h5>
+          </div>
+          <div class="col-8">
+            {{pageData.user_state || '---'}}
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>City</h5>
+          </div>
+          <div class="col-8">
+            {{pageData.user_city || '---'}}
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>Country</h5>
+          </div>
+          <div class="col-8">
+            {{pageData.user_country || '---'}}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-footer text-muted">
+    <button class="btn btn-primary float-right" [routerLink]="['/employers']" routerLinkActive="router-link-active" >Back</button>
+  </div>
+
+</div>
+
+
+
+<div class="card" *ngIf="pageAction=='add' || pageAction=='edit'">
+
+  <div class="card-header">
+    <h5 class="card-title">{{pageAction=='add' ? 'Add': 'Update'}} employer details</h5>
+  </div>
+
+  <div class="card-body">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>Name</h5>
+          </div>
+          <div class="col-8">
+            <input type="text" class="form-control" id="name" [(ngModel)]="pageData.user_name" placeholder="Name">
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>Age</h5>
+          </div>
+          <div class="col-8">
+            <input type="number" class="form-control" id="age" [(ngModel)]="pageData.user_age" placeholder="Age">
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>State</h5>
+          </div>
+          <div class="col-8">
+            <input type="text" class="form-control" id="state" [(ngModel)]="pageData.user_state" placeholder="State">
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>City</h5>
+          </div>
+          <div class="col-8">
+            <input type="text" class="form-control" id="city" [(ngModel)]="pageData.user_city" placeholder="City">
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-4">
+           <h5>Country</h5>
+          </div>
+          <div class="col-8">
+            <input type="text" class="form-control" id="country" [(ngModel)]="pageData.user_country" placeholder="Country">
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card-footer text-muted">
+    <button class="btn btn-danger float-right mr-2" [routerLink]="['/employers']" routerLinkActive="router-link-active" >Cancel</button>
+    <button class="btn btn-primary float-right mr-2" (click)="submitPageData()" *ngIf="pageAction=='edit'">Update</button>
+    <button class="btn btn-primary float-right mr-2" (click)="submitPageData()" *ngIf="pageAction=='add'">Add</button>
+  </div>
+
+</div>

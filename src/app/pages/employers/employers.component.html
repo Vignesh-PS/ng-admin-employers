@@ -1,0 +1,60 @@
+
+<div class="card p-3">
+  <div class="row">
+    <div class="col-9"></div>
+    <div class="col-3 text-right">
+      <button class="btn btn-light" [routerLink]="['/employers', 'add', 0 ]" routerLinkActive="router-link-active" >Add Employer</button>
+    </div>
+  </div>
+</div>
+
+<form>
+  <!-- <div class="form-group form-inline">
+      Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
+  </div> -->
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">Country</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of pageData; let i=index">
+      <th scope="row">{{ i+1 }}</th>
+      <td>
+        {{p.user_name || '----'}}
+      </td>
+      <td>
+        {{p.user_age || '----'}}
+      </td>
+      <td>
+        {{p.user_city || '----'}}
+      </td>
+      <td>
+        {{p.user_state || '----'}}
+      </td>
+      <td>
+        {{p.user_country || '----'}}
+      </td>
+      <td>
+        <button class="btn btn-primary" [routerLink]="['/employers', 'view', p.id]" >View</button>
+        <button class="btn btn-warning ml-1" [routerLink]="['/employers', 'edit', p.id]" >Edit</button>
+        <button class="btn btn-danger ml-1" (click)="deleteUser(p.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination [pageSize]="pageData.length">
+    </ngb-pagination>
+
+
+  </div>

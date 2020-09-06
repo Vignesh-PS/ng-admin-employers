@@ -1,0 +1,48 @@
+
+<div class="card p-3">
+  <div class="row">
+    <div class="col-9"></div>
+    <div class="col-3 text-right">
+      <button class="btn btn-light" [routerLink]="['/departments', 'add', 0 ]" routerLinkActive="router-link-active" >Add Department</button>
+    </div>
+  </div>
+</div>
+
+<form>
+  <!-- <div class="form-group form-inline">
+      Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
+  </div> -->
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Department Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of pageData; let i=index">
+      <th scope="row">{{ i+1 }}</th>
+      <td>
+        {{p.department_name || '----'}}
+      </td>
+      <td style="max-width: 300px;">
+        {{(p.department_description.length>80)?p.department_description.substring(0, 80)+'...': p.department_description || '----'}}
+      </td>
+      <td>
+        <button class="btn btn-primary" [routerLink]="['/departments', 'view', p.id]" >View</button>
+        <button class="btn btn-warning ml-1" [routerLink]="['/departments', 'edit', p.id]" >Edit</button>
+        <button class="btn btn-danger ml-1" (click)="deleteDepartment(p.id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination [pageSize]="pageData.length">
+    </ngb-pagination>
+
+
+  </div>
