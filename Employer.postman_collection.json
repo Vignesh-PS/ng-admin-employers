@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "8a8af97b-4aeb-42f4-89f1-4c51a6dbaa7d",
+		"name": "Employer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "getEmployers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"sangs\",\n\t\"dob\": \"sangs\",\n\t\"state\": \"sangs\",\n\t\"city\": \"sangs\",\n\t\"country\": \"sangs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/getEmployers",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getEmployers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employerAdd",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user_name\": \"sangs\",\n\t\"user_age\": \"sangs\",\n\t\"user_state\": \"sangs\",\n\t\"user_city\": \"sangs\",\n\t\"user_country\": \"sangs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/employerAdd",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"employerAdd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEmployer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\" : \"6\",\n\t\"user_name\": \"sangss\",\n\t\"user_dob\": \"sangs\",\n\t\"user_state\": \"sangs\",\n\t\"city\": \"sangs\",\n\t\"user_country\": \"sangs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/updateEmployer/6",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"updateEmployer",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEmployer",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/getEmployer/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getEmployer",
+								"2"
+							],
+							"query": [
+								{
+									"key": "employerId",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEmployer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/deleteEmployer/9",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"deleteEmployer",
+								"9"
+							],
+							"query": [
+								{
+									"key": "employerId",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Departments",
+			"item": [
+				{
+					"name": "getDepartments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"sangs\",\n\t\"dob\": \"sangs\",\n\t\"state\": \"sangs\",\n\t\"city\": \"sangs\",\n\t\"country\": \"sangs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/getDepartments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getDepartments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "departmentAdd",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"department_name\": \"sangs\",\n\t\"department_description\": \"hat is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/departmentAdd",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"departmentAdd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDepartment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/getDepartment/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getDepartment",
+								"2"
+							],
+							"query": [
+								{
+									"key": "employerId",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteDepartment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/deleteDepartment/5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"deleteDepartment",
+								"5"
+							],
+							"query": [
+								{
+									"key": "employerId",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Assigned",
+			"item": [
+				{
+					"name": "getAssigneds",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"sangs\",\n\t\"dob\": \"sangs\",\n\t\"state\": \"sangs\",\n\t\"city\": \"sangs\",\n\t\"country\": \"sangs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/getAssigneds",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getAssigneds"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignedAdd",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"department_name\": \"sangs\",\n\t\"department_description\": \"hat is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/assignedAdd",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"assignedAdd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAssigned",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/getAssigned/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getAssigned",
+								"2"
+							],
+							"query": [
+								{
+									"key": "employerId",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAssigned",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/deleteAssigned/5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"deleteAssigned",
+								"5"
+							],
+							"query": [
+								{
+									"key": "employerId",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
