@@ -1,0 +1,128 @@
+
+<div class="card p-3">
+  <div class="row">
+    <div class="col-6">
+
+      <form class="form-inline">
+        <div class="form-group hidden">
+          <div class="input-group">
+            <input name="datepicker"
+                   class="form-control"
+                   ngbDatepicker
+                   #datepicker="ngbDatepicker"
+                   [autoClose]="'outside'"
+                   (dateSelect)="onDateSelection($event)"
+                   [displayMonths]="2"
+                   [dayTemplate]="t"
+                   outsideDays="hidden"
+                   [startDate]="fromDate!">
+            <ng-template #t let-date let-focused="focused">
+              <span class="custom-day"
+                    [class.focused]="focused"
+                    [class.range]="isRange(date)"
+                    [class.faded]="isHovered(date) || isInside(date)"
+                    (mouseenter)="hoveredDate = date"
+                    (mouseleave)="hoveredDate = null">
+                {{ date.day }}
+              </span>
+            </ng-template>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <input #dpFromDate
+                   class="form-control" placeholder="yyyy-mm-dd"
+                   name="dpFromDate"
+                   [value]="formatter.format(fromDate)"
+                   (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="form-group ml-2">
+          <div class="input-group">
+            <input #dpToDate
+                   class="form-control" placeholder="yyyy-mm-dd"
+                   name="dpToDate"
+                   [value]="formatter.format(toDate)"
+                   (input)="toDate = validateInput(toDate, dpToDate.value)">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-1">
+      <button (click)="pageData=pageDataTemp; fromDate=null; toDate=null" class="btn btn-light">
+        clear
+      </button>
+    </div>
+
+    <div class="col-2"></div>
+    <div class="col-3 text-right">
+      <button class="btn btn-light" [routerLink]="['/assigns', 'add', 0 ]" routerLinkActive="router-link-active">Assign</button>
+    </div>
+  </div>
+</div>
+
+<form>
+  <!-- <div class="form-group form-inline">
+      Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
+  </div> -->
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Employer Name</th>
+      <th scope="col">Department Name</th>
+      <th scope="col">Start</th>
+      <th scope="col">End</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of pageData; let i=index">
+      <th scope="row">{{ i+1 }}</th>
+      <td>
+        {{p.user_name || '----'}}
+      </td>
+      <td>
+        {{p.department_name || '----'}}
+      </td>
+      <td>
+        {{(p.assigned_start_date | date) || '----'}}
+      </td>
+      <td>
+        {{(p.assigned_end_date | date) || '----'}}
+      </td>
+      <td>
+        <button class="btn btn-primary" [routerLink]="['/assignment', 'view', p.id]" >View</button>
+        <button class="btn btn-warning ml-1" [routerLink]="['/assignment', 'edit', p.id]" >Edit</button>
+        <button class="btn btn-danger ml-1" (click)="deleteUser(p.id)">Delete</button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+
+  <div *ngIf="pageData.length<1" class="text-center py-4">
+    <h2>
+      No users assigned.
+    </h2>
+  </div>
+
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination [pageSize]="pageData.length">
+    </ngb-pagination>
+
+
+  </div>
