@@ -7,7 +7,7 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
-      // { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
+       { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
       {
         path: 'dashboard',
         loadChildren: ()=> import('./dashboard/dashboard.module').then(m => m.DashboardModule)
@@ -18,6 +18,9 @@ const routes: Routes = [
       {
         path: 'departments',
         loadChildren: ()=> import('./departments/departments.module').then(m => m.DepartmentsModule)
+      },{
+        path: 'assignment',
+        loadChildren: ()=> import('./assign/assign.module').then(m => m.AssignsModule)
       }
     ]
   }

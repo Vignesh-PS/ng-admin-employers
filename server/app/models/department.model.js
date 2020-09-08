@@ -61,7 +61,13 @@ Department.updateById = (id, department, result) => {
   try {
     let rawdata = fs.readFileSync(departmentFile);
     let departmentData = JSON.parse(rawdata);
-    result(null, { status: "200", data: departmentData });
+
+    let deptIndex = departmentData.findIndex(x => x.id == id);
+    if(deptIndex != -1){
+      departmentData[deptIndex] = department;
+    }
+    fs.writeFileSync(departmentFile, JSON.stringify(departmentData));
+    result(null, { status: "200", data: id, error: 'Department updated successfully.' });
   } catch {
     result(null, { status: "400", error: "Data not found" });
   }
@@ -71,7 +77,7 @@ Department.remove = (id, result) => {
   try {
     let rawdata = fs.readFileSync(departmentFile);
     let departmentData = JSON.parse(rawdata);
-    let departmentIndex = departmentData.findIndex(x => x.id == id); 
+    let departmentIndex = departmentData.findIndex(x => x.id == id);
     if(departmentIndex != -1){
       departmentData.splice(departmentIndex, 1);
       fs.writeFileSync(departmentFile, JSON.stringify(departmentData));

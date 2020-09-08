@@ -68,7 +68,7 @@ export class AssignsComponent implements OnInit {
       toDate = new Date(this.toDate.year, this.toDate.month-1, this.toDate.day);
     }
 
-    if(fromDate){
+    if(fromDate && (!toDate)){
       this.pageData = this.pageDataTemp.filter(x => {
         console.log(x.assigned_start_date, fromDate, x.assigned_end_date);
 
@@ -76,6 +76,17 @@ export class AssignsComponent implements OnInit {
 
         let d2 = new Date(x.assigned_end_date)
       return  ((d1.getTime() <= fromDate.getTime()) && (fromDate.getTime() <= d2.getTime()))
+      })
+    }
+
+    if(fromDate && toDate){
+      this.pageData = this.pageDataTemp.filter(x => {
+        console.log(x.assigned_start_date, fromDate, x.assigned_end_date);
+
+        let d1 = new Date(x.assigned_start_date);
+
+        let d2 = new Date(x.assigned_end_date)
+      return  ((d1.getTime() >= fromDate.getTime()) && (d2.getTime() <= toDate.getTime() ))
       })
     }
 
